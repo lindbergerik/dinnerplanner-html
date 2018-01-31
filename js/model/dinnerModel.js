@@ -6,11 +6,11 @@ var DinnerModel = function() {
 
 
 	this.setNumberOfGuests = function(num) {
-		//TODO Lab 1
+		numberOfGuests = num;
 	}
 	
 	this.getNumberOfGuests = function() {
-		//TODO Lab 1
+		return numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -36,11 +36,21 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 1 
+		var dish = getDish(id);
+		if(dish.type=='starter') {
+			menu.starter = dish;
+		}
+		else if(dish.type=='main dish') {
+			menu.mainDish = dish;
+		}
+		else if(dish.type=='dessert') {
+			menu.dessert = dish;
+		}
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
+		var dish = getDish(id);
 		//TODO Lab 1
 	}
 
@@ -75,6 +85,22 @@ var DinnerModel = function() {
 		}
 	}
 
+	// DINNER variables/objects
+	var numberOfGuests = 0;
+	var menu = {
+		starter:{},
+		mainDish:{},
+		dessert:{}
+	};
+
+	// observers, för interaktivitet
+	var observers = [];
+	this.addObserver = function(observer) {
+		observer.push(observer);
+	}
+	this.notifyObserver = function() {
+		// GÖR NÅNTING??
+	}
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
