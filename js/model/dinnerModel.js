@@ -7,10 +7,12 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
+		console.log(numberOfGuests);
 	}
 	
 	this.getNumberOfGuests = function() {
 		return numberOfGuests;
+		console.log(numberOfGuests);
 	}
 
 	//Returns the dish that is on the menu for selected type 
@@ -86,7 +88,7 @@ var DinnerModel = function() {
 	}
 
 	// DINNER variables/objects
-	var numberOfGuests = 0;
+	var numberOfGuests = 1;
 	var menu = {
 		starter:{},
 		mainDish:{},
@@ -96,10 +98,12 @@ var DinnerModel = function() {
 	// observers, för interaktivitet
 	var observers = [];
 	this.addObserver = function(observer) {
-		observer.push(observer);
+		observers.push(observer);
 	}
 	this.notifyObserver = function() {
-		// GÖR NÅNTING??
+		for(var i=0; i<observers.length(); i++) {
+			observers[i].update();
+		}
 	}
 
 	// the dishes variable contains an array of all the 
