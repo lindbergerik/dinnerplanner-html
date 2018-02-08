@@ -8,6 +8,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
 		console.log(numberOfGuests);
+		notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -100,9 +101,10 @@ var DinnerModel = function() {
 	this.addObserver = function(observer) {
 		observers.push(observer);
 	}
-	this.notifyObserver = function() {
-		for(var i=0; i<observers.length(); i++) {
-			observers[i].update();
+	// en allmän "notifyObservers" funktion, som inte är this. GLÖM INTE ATT CALLA DEN VID ALL INTERAKTION
+	var notifyObservers = function(arg) {
+		for(var i=0; i<observers.length; i++) {
+			observers[i].update(arg);
 		}
 	}
 

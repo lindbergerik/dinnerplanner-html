@@ -6,7 +6,7 @@ $(function() {
 	var exampleView = new ExampleView($("#exampleView"), model);
 
 	// controller
-	var exampleViewController = new exampleViewController(exampleView, model);
+	var exampleViewController = new ExampleViewController(exampleView, model);
 
 
 	/**
