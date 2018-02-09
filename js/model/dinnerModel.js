@@ -88,6 +88,23 @@ var DinnerModel = function() {
 		}
 	}
 
+	// FÖRSÖK FÅ DEN HÄR ATT FUNKA, så att du vet hur man kopplar ett API
+	// sen e det ju fan good to go med D3!
+	this.getAllDishes2 = function (type,filter,cb,cbError) {
+	  $.ajax( {
+	  	url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=' + filter + '&type=' + type,
+	  	headers: {
+	  			'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
+	  	},
+	  	success: function(data) {
+	  		cb(data.results)	//callbackfunktionen kör när vi väl har datan (hideloading, showsearchresults i searchViewController)
+	  	},
+	  	error: function(data) {
+	  		cbError(data)
+	  	}
+	  })
+	}
+
 	// DINNER variables/objects
 	var numberOfGuests = 1;
 	var menu = {
