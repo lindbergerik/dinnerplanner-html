@@ -89,7 +89,8 @@ var DinnerModel = function() {
 	}
 
 	// FÖRSÖK FÅ DEN HÄR ATT FUNKA, så att du vet hur man kopplar ett API
-	// sen e det ju fan good to go med D3!
+	// testa först att få ut med vanliga getAllDishes, sen denna
+	// sen e det ju ba lite angular och det kan du :))
 	this.getAllDishes2 = function (type,filter,cb,cbError) {
 	  $.ajax( {
 	  	url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=' + filter + '&type=' + type,
