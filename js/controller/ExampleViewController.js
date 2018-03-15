@@ -12,16 +12,17 @@ var ExampleViewController = function(view, model ) {
 	// API TEST - fortsätt försöka få detta att funka!
 	view.dishButton.click(function(){
 		//console.log(model.getAllDishes('starter'));
-		model.getAllDishes2('starter', '', function(dishes){
+		model.getAllDishes2('starter', '', function(dishes){	//<-- function(dishes) här blir cb(data.results) från API:et
+			//SKRIV ALLT SOM VI SKA GÖRA MED API-DATAN HÄR6u
 			console.log(dishes);
 			for (key in dishes) {
-				if (dishes[key].title == "Cilantro Salsa") {
-					console.log(dishes[key].title);
+				console.log(dishes[key].title);
+				if (dishes[key].readyInMinutes == 20) {
+					console.log(" -- QUICKFOOD");
 				}
 			}
-			//SKRIV ALLT HÄR
-		}, function(dishes){
-
+		}, function(dishes){	//<-- function(dishes) här blir cbError(data)
+			console.log("something went wrong :(")
 		});
 	})
 }

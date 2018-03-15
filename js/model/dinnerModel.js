@@ -98,7 +98,7 @@ var DinnerModel = function() {
 	  			'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
 	  	},
 	  	success: function(data) {
-	  		cb(data.results)	//callbackfunktionen kör när vi väl har datan (hideloading, showsearchresults i searchViewController)
+	  		cb(data.results)	//callbackfunktionen kör när vi väl har datan (hideloading, kör functionen vi kastade med från controllern)
 	  	},
 	  	error: function(data) {
 	  		cbError(data)
